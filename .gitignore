@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+
+venv/
+.env
+
+models/*.pkl
+
+static/uploads/*.csv
+static/uploads/*.xlsx
+
+static/reports/*.pdf
