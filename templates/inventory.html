@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    Inventory Optimization Dashboard
+</h2>
+
+{% if message %}
+
+<div class="alert alert-warning">
+    {{ message }}
+</div>
+
+{% endif %}
+
+{% if preview %}
+
+<div class="card p-4 mb-4">
+
+    <h4>
+        Inventory Recommendations
+    </h4>
+
+    <div class="table-responsive">
+        {{ preview|safe }}
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-4">
+
+        <div class="summary-card">
+
+            <h5>
+                Low Stock Items
+            </h5>
+
+            <h3>
+                {{ low_stock }}
+            </h3>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="summary-card">
+
+            <h5>
+                Overstock Items
+            </h5>
+
+            <h3>
+                {{ overstock }}
+            </h3>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="summary-card">
+
+            <h5>
+                Optimal Stock
+            </h5>
+
+            <h3>
+                {{ optimal }}
+            </h3>
+
+        </div>
+
+    </div>
+
+</div>
+
+<a
+href="/static/uploads/inventory_report.csv"
+download
+class="btn btn-success mt-4">
+
+Download Inventory Report
+
+</a>
+
+{% endif %}
+
+{% endblock %}

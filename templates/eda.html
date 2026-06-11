@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Exploratory Data Analysis
+    </h2>
+
+    {% if message %}
+
+    <div class="alert alert-warning">
+        {{ message }}
+    </div>
+
+    {% endif %}
+
+    {% if total_sales %}
+
+    <div class="row mb-4">
+
+        <div class="col-md-4">
+            <div class="summary-card">
+                <h5>Total Sales</h5>
+                <h3>{{ total_sales }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="summary-card">
+                <h5>Average Sales</h5>
+                <h3>{{ average_sales }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="summary-card">
+                <h5>Top Product</h5>
+                <h3>{{ max_product }}</h3>
+            </div>
+        </div>
+
+    </div>
+
+    {% endif %}
+
+    {% if chart1 %}
+
+    <div class="card p-4 mb-4">
+
+        <h4 class="mb-3">
+            Sales Distribution
+        </h4>
+
+        {{ chart1|safe }}
+
+    </div>
+
+    {% endif %}
+
+    {% if chart2 %}
+
+    <div class="card p-4 mb-4">
+
+        <h4 class="mb-3">
+            Sales Trend Analysis
+        </h4>
+
+        {{ chart2|safe }}
+
+    </div>
+
+    {% endif %}
+
+    {% if chart3 %}
+
+    <div class="card p-4 mb-4">
+
+        <h4 class="mb-3">
+            Correlation Heatmap
+        </h4>
+
+        {{ chart3|safe }}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

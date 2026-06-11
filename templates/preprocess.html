@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    Data Preprocessing
+</h2>
+
+{% if message %}
+
+<div class="alert alert-warning">
+    {{ message }}
+</div>
+
+{% endif %}
+
+{% if report %}
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="summary-card">
+            <h5>Missing Before</h5>
+            <h3>{{ report.missing_before }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="summary-card">
+            <h5>Missing After</h5>
+            <h3>{{ report.missing_after }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="summary-card">
+            <h5>Duplicates Before</h5>
+            <h3>{{ report.duplicates_before }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="summary-card">
+            <h5>Duplicates After</h5>
+            <h3>{{ report.duplicates_after }}</h3>
+        </div>
+    </div>
+
+</div>
+
+<div class="mt-5">
+
+    <h3>
+        Cleaned Dataset Preview
+    </h3>
+
+    <div class="table-responsive">
+        {{ preview|safe }}
+    </div>
+
+</div>
+<div class="col-md-3">
+    <div class="summary-card">
+        <h5>Outliers Removed</h5>
+        <h3>{{ report.outliers_removed }}</h3>
+    </div>
+</div>
+
+<div class="mt-4">
+
+    <a href="/static/uploads/cleaned_dataset.csv"
+       class="btn btn-success"
+       download>
+
+        Download Cleaned Dataset
+
+    </a>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

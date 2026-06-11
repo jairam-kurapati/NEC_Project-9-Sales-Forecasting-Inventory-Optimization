@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Sales Forecasting & Inventory Optimization
+</h1>
+
+{% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
+
+<!-- KPI CARDS -->
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+        <div class="card p-3 shadow">
+            <h5>Total Products</h5>
+            <h3>{{ total_products }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card p-3 shadow">
+            <h5>Low Stock Items</h5>
+            <h3>{{ low_stock }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card p-3 shadow">
+            <h5>Overstock Items</h5>
+            <h3>{{ overstock }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card p-3 shadow">
+            <h5>Optimal Stock</h5>
+            <h3>{{ optimal }}</h3>
+        </div>
+    </div>
+
+</div>
+
+<!-- ROW 1 -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="card p-4 shadow h-100">
+
+            <h4 class="mb-3">
+                Inventory Status Analysis
+            </h4>
+
+            {% if pie_chart %}
+                {{ pie_chart|safe }}
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="card p-4 shadow h-100">
+
+            <h4 class="mb-3">
+                Forecast Trend
+            </h4>
+
+            {% if forecast_chart %}
+                {{ forecast_chart|safe }}
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ROW 2 -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="card p-4 shadow h-100">
+
+            <h4 class="mb-3">
+                Top Products by Predicted Sales
+            </h4>
+
+            {% if products_chart %}
+                {{ products_chart|safe }}
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="card p-4 shadow h-100">
+
+            <h4 class="mb-3">
+                Revenue Contribution
+            </h4>
+
+            {% if revenue_chart %}
+                {{ revenue_chart|safe }}
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ROW 3 -->
+
+<div class="row mt-4">
+
+    <div class="col-12">
+
+        <div class="card p-4 shadow">
+
+            <h4 class="mb-3">
+                Inventory vs Demand
+            </h4>
+
+            {% if scatter_chart %}
+                {{ scatter_chart|safe }}
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- WORKFLOW STATUS -->
+
+<div class="card mt-5 p-4 shadow">
+
+    <h4 class="mb-3">
+        System Workflow Status
+    </h4>
+
+    <ul class="list-group">
+
+        <li class="list-group-item">
+            ✅ Data Upload
+        </li>
+
+        <li class="list-group-item">
+            ✅ Data Preprocessing
+        </li>
+
+        <li class="list-group-item">
+            ✅ EDA Analysis
+        </li>
+
+        <li class="list-group-item">
+            ✅ Model Training
+        </li>
+
+        <li class="list-group-item">
+            ✅ Sales Forecasting
+        </li>
+
+        <li class="list-group-item">
+            ✅ Inventory Optimization
+        </li>
+
+        <li class="list-group-item">
+            ✅ Report Generation
+        </li>
+
+    </ul>
+
+</div>
+
+{% endblock %}

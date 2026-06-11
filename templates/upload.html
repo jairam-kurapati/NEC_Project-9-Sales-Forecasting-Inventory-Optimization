@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Data Upload Center
+    </h2>
+
+    {% if message %}
+    <div class="alert alert-info">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    <div class="upload-card">
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <div class="drop-zone">
+
+                <h4>Upload CSV or Excel File</h4>
+
+                <p>
+                    Drag & Drop or Click Below
+                </p>
+
+                <input
+                    type="file"
+                    name="file"
+                    class="form-control">
+
+            </div>
+
+            <button class="btn btn-primary mt-3">
+                Upload Dataset
+            </button>
+
+        </form>
+
+    </div>
+
+    {% if summary %}
+
+    <div class="row mt-4">
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow">
+                <h5>Rows</h5>
+                <h3>{{ summary.rows }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow">
+                <h5>Columns</h5>
+                <h3>{{ summary.columns }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow">
+                <h5>Missing Values</h5>
+                <h3>{{ summary.missing }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow">
+                <h5>Duplicates</h5>
+                <h3>{{ summary.duplicates }}</h3>
+            </div>
+        </div>
+
+    </div>
+
+    {% endif %}
+
+    {% if preview %}
+
+    <div class="mt-5">
+
+        <h3>Dataset Preview</h3>
+
+        <div class="table-responsive">
+            {{ preview|safe }}
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

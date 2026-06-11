@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    Reports Dashboard
+</h2>
+
+{% if message %}
+
+<div class="alert alert-warning">
+    {{ message }}
+</div>
+
+{% endif %}
+
+{% if report_ready %}
+
+<div class="card p-4">
+
+    <h4>
+        Executive Report Generated
+    </h4>
+
+    <p>
+        Download the latest business report.
+    </p>
+
+    <a
+    href="/static/reports/business_report.pdf"
+    download
+    class="btn btn-success">
+
+        Download PDF Report
+
+    </a>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

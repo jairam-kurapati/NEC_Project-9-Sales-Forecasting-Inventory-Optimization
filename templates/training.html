@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    Model Training Dashboard
+</h2>
+
+{% if message %}
+
+<div class="alert alert-warning">
+    {{ message }}
+</div>
+
+{% endif %}
+
+{% if results %}
+
+<div class="card p-4">
+
+    <h4 class="mb-3">
+        Model Comparison
+    </h4>
+
+    <table class="table table-bordered">
+
+        <thead>
+
+            <tr>
+                <th>Model</th>
+                <th>MAE</th>
+                <th>RMSE</th>
+                <th>R²</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for row in results %}
+
+            <tr>
+
+                <td>{{ row.Model }}</td>
+                <td>{{ row.MAE }}</td>
+                <td>{{ row.RMSE }}</td>
+                <td>{{ row.R2 }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
