@@ -11,6 +11,10 @@ import plotly.express as px
 from models.inventory import optimize_inventory
 from reports.pdf_generator import generate_pdf
 import plotly.express as px
+import os
+
+os.makedirs("static/uploads", exist_ok=True)
+os.makedirs("static/reports", exist_ok=True)
 
 app = Flask(__name__)
 
